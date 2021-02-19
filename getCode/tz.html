@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var url='http://www.hjfjh.xyz/getCode'
+    var gteinfo = function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    };
+    console.log(gteinfo('code'));
+    if (gteinfo('code') !== '' && gteinfo('code') != null&& gteinfo('code') !== undefined) {
+        console.log(gteinfo('code'));
+        var code=gteinfo('code');
+        // location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx36d39ccf100e4703&redirect_uri='+url+'&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
+        location.href='http://110.249.147.178:18090/dist/?code='+code;
+    }
+</script>
+</body>
+</html>
